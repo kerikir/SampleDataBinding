@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
 
         // Явно указываем начальные значения
+        updateName()
     }
 
 
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity()
     }
 
 
-    // 
+    //
     private fun updateLikes()
     {
         findViewById<TextView>(R.id.label_likes).text = viewModel.counterLikes.toString()
