@@ -5,4 +5,6 @@
     <string name="label_lastName">Last name</string>
     <string name="placeholder_lastName">Brown</string>
     <string name="description_profile_avatar">Profile\'s avatar</string>
+    <string name="label_likes">Likes</string>
+    <string name="placeholder_likes">5</string>
 </resources>
