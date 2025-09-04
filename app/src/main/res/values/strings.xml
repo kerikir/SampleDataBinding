@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SampleDataBinding</string>
+    <string name="label_name">Name</string>
+    <string name="placeholder_name">Tom</string>
 </resources>
