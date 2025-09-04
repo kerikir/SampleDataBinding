@@ -2,4 +2,6 @@
     <string name="app_name">SampleDataBinding</string>
     <string name="label_name">Name</string>
     <string name="placeholder_name">Tom</string>
+    <string name="label_lastName">Last name</string>
+    <string name="placeholder_lastName">Brown</string>
 </resources>

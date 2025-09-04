@@ -10,7 +10,7 @@
     <!-- Надпись имя сверху -->
     <TextView
         android:id="@+id/label_name"
-        android:layout_width="38dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -35,6 +35,30 @@
         />
 
 
+    <!-- Надпись фамилия сверху -->
+    <TextView
+        android:id="@+id/label_lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_lastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plain_name" />
+
+    <!-- Фамилия пользователя -->
+    <TextView
+        android:id="@+id/plain_lastName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="128dp"
+        android:text="@string/placeholder_lastName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_lastName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
