@@ -14,10 +14,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.sampledatabinding.R
 import com.example.sampledatabinding.data.Popularity
 import com.example.sampledatabinding.data.SimpleViewModel
+import com.example.sampledatabinding.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity()
 {
@@ -28,10 +30,16 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        // Явно указываем начальные значения
-        updateName()
+        // Установка макета в активности
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        // Устанавливаем переменные макета
+        binding.name = viewModel.name
+        binding.lastName = viewModel.lastName
+
+        // Явно указываем начальные Wзначения
         updateLikes()
     }
 
@@ -44,14 +52,6 @@ class MainActivity : AppCompatActivity()
     }
 
 
-    // Установка значений в макете
-    private fun updateName() : Unit
-    {
-        findViewById<TextView>(R.id.plain_name).text = viewModel.name
-        findViewById<TextView>(R.id.plain_lastName).text = viewModel.lastName
-    }
-
-
     // Обновление счетчика лайков и аватара в макете
     private fun updateLikes() : Unit
     {
@@ -60,10 +60,10 @@ class MainActivity : AppCompatActivity()
             .coerceAtMost(100)
 
         val image: ImageView = findViewById<ImageView>(R.id.imageView)
-        val color: Int = getColor(this, viewModel.popularity)
-
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
         image.setImageDrawable(getImage(this, viewModel.popularity))
+
+        val color: Int = getColor(this, viewModel.popularity)
+        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
     }
 
 
