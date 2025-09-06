@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity()
     fun onLike(view: View) : Unit
     {
         viewModel.onLike()
+        updateLikes()
     }
 
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity()
     }
 
 
-    //
+    // Обновление счетчика лайков и аватара в макете
     private fun updateLikes() : Unit
     {
         findViewById<TextView>(R.id.plain_likes).text = viewModel.counterLikes.toString()
