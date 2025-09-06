@@ -52,14 +52,6 @@ class MainActivity : AppCompatActivity()
     }
 
 
-    // Установка значений в макете
-    private fun updateName() : Unit
-    {
-        findViewById<TextView>(R.id.plain_name).text = viewModel.name
-        findViewById<TextView>(R.id.plain_lastName).text = viewModel.lastName
-    }
-
-
     // Обновление счетчика лайков и аватара в макете
     private fun updateLikes() : Unit
     {
