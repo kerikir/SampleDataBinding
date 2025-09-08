@@ -35,51 +35,10 @@ class MainActivity : AppCompatActivity()
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        // Указание Lifecycle Owner так как поддерживает собятия жизненного цикла
+        binding.lifecycleOwner = this
+
         // Устанавливаем переменные макета
         binding.viewmodel = viewModel
-
-        // Явно указываем начальные значения
-        updateLikes()
-    }
-
-
-    // Обновление счетчика лайков и аватара в макете
-    private fun updateLikes() : Unit
-    {
-        findViewById<TextView>(R.id.plain_likes).text = viewModel.counterLikes.toString()
-        findViewById<ProgressBar>(R.id.progressBar).progress = (viewModel.counterLikes * 100 / 5)
-            .coerceAtMost(100)
-
-        val image: ImageView = findViewById<ImageView>(R.id.imageView)
-        image.setImageDrawable(getImage(this, viewModel.popularity))
-
-        val color: Int = getColor(this, viewModel.popularity)
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
-    }
-
-
-    // Получение цвета в зависимости от категории популярности
-    fun getColor(context: Context, popularity: Popularity) : Int
-    {
-        return when (popularity)
-        {
-            Popularity.NORMAL -> context.theme.obtainStyledAttributes(
-                intArrayOf(android.R.attr.colorForeground)).getColor(0, 0x000000)
-
-            Popularity.POPULAR -> ContextCompat.getColor(context, R.color.popular)
-            Popularity.STAR -> ContextCompat.getColor(context, R.color.star)
-        }
-    }
-
-
-    // Получение иконки в зависимости от категории популярности
-    fun getImage(context: Context, popularity: Popularity) : Drawable?
-    {
-        return when (popularity)
-        {
-            Popularity.NORMAL -> ContextCompat.getDrawable(context, R.drawable.icon_person)
-            Popularity.POPULAR -> ContextCompat.getDrawable(context, R.drawable.icon_fire)
-            Popularity.STAR -> ContextCompat.getDrawable(context, R.drawable.icon_fire)
-        }
     }
 }
