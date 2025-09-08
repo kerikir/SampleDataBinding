@@ -5,10 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Переменные макета -->
+    <!-- Переменные макета через свойства -->
     <data>
-        <variable name="name" type="String"/>
-        <variable name="lastName" type="String"/>
+        <variable name="viewmodel" type="com.example.sampledatabinding.data.SimpleViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +35,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="128dp"
-            android:text="@{name}"
+            android:text="@{viewmodel.name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +63,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="128dp"
-            android:text="@{lastName}"
+            android:text="@{viewmodel.lastName}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +129,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:onClick="onLike"
+            android:onClick="@{() -> viewmodel.onLike()}"
             android:text="@string/like_button"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/imageView"
