@@ -36,18 +36,9 @@ class MainActivity : AppCompatActivity()
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         // Устанавливаем переменные макета
-        binding.name = viewModel.name
-        binding.lastName = viewModel.lastName
+        binding.viewmodel = viewModel
 
-        // Явно указываем начальные Wзначения
-        updateLikes()
-    }
-
-
-    // Бизнес логика
-    fun onLike(view: View) : Unit
-    {
-        viewModel.onLike()
+        // Явно указываем начальные значения
         updateLikes()
     }
 
