@@ -9,3 +9,7 @@
 
 ## Реализация 
 Static Data Binding для имени и фамилии пользователя.
+<br/>
+Для реализации Observable Data используется заглушка Live Data. 
+Также указывается User Event из View Model.
+<br/>
