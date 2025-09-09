@@ -7,6 +7,10 @@ android {
     namespace = "com.example.sampledatabinding"
     compileSdk = 35
 
+    dataBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.example.sampledatabinding"
         minSdk = 27
@@ -33,10 +37,6 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
-    dataBinding {
-        enable = true
-    }
 }
 
 dependencies {
@@ -46,6 +46,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.databinding.runtime)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

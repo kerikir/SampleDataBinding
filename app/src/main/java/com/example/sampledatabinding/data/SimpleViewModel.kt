@@ -7,8 +7,10 @@ import androidx.lifecycle.map
 
 class SimpleViewModel : ViewModel()
 {
-    val name: String = "John"
-    val lastName: String = "Smith"
+    private val _name = MutableLiveData("John")
+    val name: LiveData<String> = _name
+    private val _lastName = MutableLiveData("Smith")
+    val lastName: LiveData<String> = _lastName
 
     // Скрываем изменения извне
     private val _counterLikes = MutableLiveData<Int>(0)
