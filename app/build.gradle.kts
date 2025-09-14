@@ -5,11 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.sampledatabinding"
-    compileSdk = 35
-
-    dataBinding {
-        enable = true
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.sampledatabinding"
@@ -37,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    dataBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.androidx.databinding.runtime)
+    implementation(libs.androidx.databinding.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
